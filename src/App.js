@@ -1,7 +1,8 @@
-import './App.scss';
-import Header from './components/header';
-import Footer from './components/footer';
-import Dropdown from './components/dropdown';
+import React from 'react';
+import Header from './components/Js/header';
+import Footer from './components/Js/footer';
+import Dropdown from './components/Js/dropdown';
+import './components/Sass/App.scss'
 
 function App() {
   return (

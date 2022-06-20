@@ -1,9 +1,14 @@
-import './App.css';
+import './App.scss';
+import Header from './components/header';
+import Footer from './components/footer';
+import Dropdown from './components/dropdown';
 
 function App() {
   return (
     <div className="App">
-      <h1>Header Section</h1>
+      <Header />
+      <Dropdown />
+      <Footer />
     </div>
   );
 }

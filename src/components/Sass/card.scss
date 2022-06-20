@@ -1,0 +1,32 @@
+$color-1:rgb(100, 100, 100);
+$color-2:black;
+
+.card-style {
+    margin: 1%;
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    .card-div {
+        margin: 20px;
+        border: none;
+    }
+}
+.card-image{
+    height: 300px;
+    width: 100%;
+}
+.card-body{
+    height: 180px;
+    p:nth-child(1){
+        text-transform:uppercase;
+        color: $color-1;
+        font-size: 20px;
+    }
+    p:nth-child(2){
+        color: $color-1;
+        font-size: 18px;
+    }
+    p:nth-child(3) {
+        color: $color-2;
+        font-size: large;
+      }
+}

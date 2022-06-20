@@ -1,26 +1,22 @@
 import React from 'react';
-import { Form, ListGroup } from 'react-bootstrap';
+import { Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-function Dropdowns() {
+function Dropdown() {
     return (
-        <Form.Group className='dropdown'>
-        <Form.Control as="select">
-          <option >Active</option>
-          <option>Inactive</option>
-        </Form.Control>
-      </Form.Group>
-    )
+        <>
+        <Table bordered className='text-center'>
+            <table className='dropdown'>
+                <select><option>All Bedrooms</option></select>
+                <select><option>Any Neighbourhood </option></select>
+                <select><option>Min Price</option></select>
+                <select><option>Max Price </option></select>
+                <select><option>Stor by </option></select>
+                <span>50 Results</span>
+            </table>
+            </Table>
+        </>
+    );
 }
 
-export default function Dropdown() {
-    return (
-        <ListGroup horizontal>
-            <Dropdowns />
-            <Dropdowns />
-            <Dropdowns />
-            <Dropdowns />
-        </ListGroup>
-    )
-}
+export default Dropdown;

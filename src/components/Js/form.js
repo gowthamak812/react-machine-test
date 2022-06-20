@@ -2,6 +2,7 @@ import React from "react";
 import '../Sass/form.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useFormik } from 'formik';
+import { useNavigate } from "react-router-dom";
 
 const validate = values => {
     var errors = {};
@@ -25,6 +26,7 @@ const validate = values => {
 function Form() {
     const validEmail = "gowtham.a@starberry.tv";
     const validPassword = "starberry@123";
+    var navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -36,7 +38,7 @@ function Form() {
                 userInputData && userInputData.password === validPassword;
             console.log(Boolean(givenValue))
             if (Boolean(givenValue) === true) {
-                console.log("Success")
+                navigate("/property", { replace: true })
             } else {
                 alert("Invalid username or Password")
             }

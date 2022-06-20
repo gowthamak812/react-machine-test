@@ -1,19 +1,20 @@
-import React from 'react';
-import Header from './components/Js/header';
-import Footer from './components/Js/footer';
-import Dropdown from './components/Js/dropdown';
-import Cards from './components/Js/property';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Form from './components/Js/form';
 import './components/Sass/App.scss'
+import Cards from './components/Js/property'
 
-function App() {
+
+export default function Rout() {
   return (
-    <div className="App">
-      <Header />
-      <Dropdown />
-      <Cards />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Form />} />
+        <Route path="/property" element={<Cards />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Rout />);

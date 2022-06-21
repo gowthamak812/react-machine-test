@@ -1,32 +1,55 @@
-$color-1:rgb(100, 100, 100);
-$color-2:black;
+$color-1: rgb(95, 92, 92);
+$color-2: black;
 
 .card-style {
     margin: 1%;
     text-align: center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
     .card-div {
         margin: 20px;
         border: none;
+        position: relative;
     }
 }
-.card-image{
-    height: 300px;
+
+.heart {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: $color-2;
+    color: white;
+    opacity: 0.5;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.card-row {
     width: 100%;
 }
-.card-body{
-    height: 180px;
-    p:nth-child(1){
-        text-transform:uppercase;
-        color: $color-1;
-        font-size: 20px;
-    }
-    p:nth-child(2){
+
+.card-image {
+    height: 100%;
+    max-height: 300px;
+}
+
+.card-body {
+    height: 100%;
+    max-height: 180px;
+
+    p:nth-child(1) {
+        text-transform: uppercase;
         color: $color-1;
         font-size: 18px;
     }
+
+    p:nth-child(2) {
+        color: $color-1;
+        font-size: 16px;
+    }
+
     p:nth-child(3) {
         color: $color-2;
         font-size: large;
-      }
+    }
 }

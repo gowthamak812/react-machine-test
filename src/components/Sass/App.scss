@@ -1,9 +1,10 @@
-$color-1:rgb(164, 164, 164);
+$color-1: rgb(164, 164, 164);
 
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
+
 .header-style,
 .footer-style {
     background-color: rgb(210, 210, 210);
@@ -17,21 +18,41 @@ $color-1:rgb(164, 164, 164);
     margin: 1%;
     font-size: 30px;
     min-width: 10%;
-    padding: 2%;
+    padding-top: 1%;
     text-align: center;
 }
 
-.dropdown {
-    display: flex;
-    flex-wrap: wrap;
-    select {
-        border: none;
-        padding:1%;
-        margin: 0% 4%;
-        outline: none;
+.nav-alignment {
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+}
+
+#basic-nav-dropdown {
+    font-size: 17px;
+    width: 100%;
+    padding: 0px 40px;
+    max-width: 280px;
+    text-align: center;
+}
+
+#basic-navbar-nav {
+    margin: 10px;
+    border-top: 2px solid $color-1;
+    border-bottom: 2px solid $color-1;
+    padding: 10px;
+
+    a {
+        text-align: left;
     }
-    span {
-        margin-left: 3%;
-        margin-top: 1%;
-    }
+}
+
+.navbar {
+    justify-content: right;
+    padding-right: 50px;
+}
+
+.result {
+    max-Width: 200px;
+    width: 100%;
 }

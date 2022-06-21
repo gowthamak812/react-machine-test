@@ -52,7 +52,7 @@ function Form() {
                     <div class="App mx-auto">
                         <div class="form-group ">
                             <h2>Sign In</h2> <br />
-                            <label>Email :</label>
+                            <label>Email<span className="text-danger ml-2">&#8270;</span></label>
                             <input
                                 type="email"
                                 class="form-control"
@@ -65,7 +65,7 @@ function Form() {
                             {formik.errors.email ? <div class="text-danger">{formik.errors.email}</div> : null}
                         </div>
                         <div class="form-group">
-                            <label>Password:</label>
+                            <label>Password<span className="text-danger ml-2">&#8270;</span></label>
                             <input
                                 type="password"
                                 class="form-control"

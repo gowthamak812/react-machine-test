@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row, Button, Table } from 'react-bootstrap';
+import { Col, Row, Button, Table, OverlayTrigger, Tooltip, Container, Modal, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import '../Sass/details.scss'
 import Header from './header';
 import Footer from "./footer";
+import ReactReadMoreReadLess from "react-read-more-read-less";
 import { BsHeart, BsShareFill } from 'react-icons/bs';
 import { MdZoomOutMap } from 'react-icons/md';
+import { TbBuildingArch } from 'react-icons/tb';
 import { AiFillHome } from 'react-icons/ai';
-import Capture from '../images/Capture.PNG'
 
 export default function Details(props) {
   const [value, setValue] = useState([])
@@ -22,7 +23,6 @@ export default function Details(props) {
     axios.get("https://carolineolds-strapi-dev.q.starberry.com/properties?_limit=50")
 
       .then(function (response) {
-        console.log(response);
         const value = response.data;
         value && value.length > 0 && value.map((data, i) => {
           if (id == i) {
@@ -34,15 +34,61 @@ export default function Details(props) {
         console.log(error);
       });
   }
+  const Share = (props) => (
+    <Tooltip {...props}>
+      Share
+    </Tooltip>
+  );
+  const Like = (props) => (
+    <Tooltip {...props}>
+      Like
+    </Tooltip>
+  );
+  const Zoom = (props) => (
+    <Tooltip {...props}>
+      Zoom
+    </Tooltip>
+  );
+  const Plan = (props) => (
+    <Tooltip {...props}>
+      Floor Plan
+    </Tooltip>
+  );
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // let longText = value && value.Description;
+  const longText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum venenatis pulvinar. Proin vitae lectus urna. Sed erat ipsum, maximus a elit nec, condimentum placerat ex. Ut tincidunt mi eget condimentum mollis. Pellentesque aliquam velit quis est varius, sed molestie dolor ultrices. Pellentesque eget dapibus eros, at blandit arcu. Duis id purus quis mi porttitor viverra vel tempus elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos posuere";
+  let one = value.Floor_Plans && value.Floor_Plans[0].url;
+  console.log(one);
+
   return (
-    <>
+    <Container>
       <Header />
       {value && (
         <Row>
-          <Col className='m-0 p-0 first-col' lg={7} md={7} xs={12} sm={6}>
+          <Col className='m-0 p-0 first-col' lg={7} md={7} xs={12} sm={12}>
             <div className='icon-position'>
-              <img className='capture' src={Capture} alt='capture'></img>
-              <h3><MdZoomOutMap /></h3>
+              <h3>
+                <OverlayTrigger
+                  placement="top"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={Zoom}>
+                  <MdZoomOutMap size={25} />
+                </OverlayTrigger>
+
+              </h3>
+              <span className='capture'>
+                <OverlayTrigger
+                  placement="top"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={Plan}>
+                  <TbBuildingArch size={25} />
+                </OverlayTrigger>
+              </span>
               <img
                 className='row-img'
                 src={value.Images && value.Images.length > 0 && value.Images[0].url} />
@@ -56,11 +102,27 @@ export default function Details(props) {
               </Col>
             </Row>
           </Col>
-          <Col lg={5} md={5} xs={12} sm={6}>
+          <Col lg={5} md={5} xs={12} sm={12}>
             <Row className='right-row'>
               <div>
                 <div className='right-col'>
-                  <h3> <BsShareFill size={18} /> <BsHeart size={22} /> </h3>
+                  <span>
+                    <OverlayTrigger
+                      placement="top"
+                      delay={{ show: 250, hide: 400 }}
+                      overlay={Like}>
+                      <BsHeart size={25} />
+                    </OverlayTrigger>
+                  </span>
+                  <span>
+                    <OverlayTrigger
+                      placement="top"
+                      delay={{ show: 250, hide: 400 }}
+                      overlay={Share}>
+                      <BsShareFill size={22} />
+                    </OverlayTrigger>
+                  </span>
+                  <br />
                   <hr />
                   <tr>
                     <p> &euro; {value && value.Price}
@@ -70,7 +132,7 @@ export default function Details(props) {
                       </sub>
                     </p>
                   </tr>
-                  <p>{value && value.Bedrooms} bedroom apartment for sale in Fontvieille</p>
+                  <p>{value && value.Bedrooms} bedroom apartment for sale in {value.Area && value.Area.Name}</p>
                   <div className='home-icon'>
                     <a href='#'>
                       <p><AiFillHome className='home' size={20} /></p>
@@ -84,23 +146,46 @@ export default function Details(props) {
                   <hr />
                   <Table borderless>
                     <tr>
-                      <td>Neighbourhood</td>
-                      <td><u>Fontvelliya</u></td>
+                      <td>Neighbourhood:</td>
+                      <td><a href='#'><p>{value.Area && value.Area.Name}</p></a></td>
                     </tr>
                     <tr>
-                      <td>Price per Sqm</td>
-                      <td> &euro; {value && value.Price_Per_Sqm}</td>
+                      <td>Price per Sqm:</td>
+                      <td style={{ textDecoration: "none" }}><p> &euro; {value && value.Price_Per_Sqm}</p></td>
                     </tr>
                     <tr>
-                      <td>Brochure</td>
-                      <td><u>Download Brochure</u></td>
+                      <td>Brochure:</td>
+                      <td><a target='_blank'
+                        href={value.Brochure && value.Brochure[0].url}>
+                        <p>Download Brochure</p></a></td>
                     </tr>
                     <tr>
-                      <td>Floor plan</td>
-                      <td><u>View Floorplan</u></td>
+                      <td>Floor plan:</td>
+                      <td onClick={handleShow}>
+                          <a href='#'><p>View Floorplan</p></a></td>
+                      <Modal className='model-box' show={show} onHide={handleClose}>
+                        <Image src={value.Floor_Plans && value.Floor_Plans[0].url} />
+                        <Modal.Footer>
+                          <Button variant="secondary" onClick={handleClose}>
+                            Close
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
                     </tr>
                   </Table>
-                  <p className='summary'>Superb duplex apartment in a new development with a spacious bedroom, two sun filled balconies, fully fitted kitchen, living room/dining room, guest toilet and lots of storage space.</p>
+                  {/* <div className='text' dangerouslySetInnerHTML={{ __html: htmlString }} /> */}
+                  <div>
+                    <ReactReadMoreReadLess
+                      charLimit={200}
+                      readMoreText={"Read more ▼"}
+                      readLessText={"Read less ▲"}
+                      readMoreClassName="read-more-less--more"
+                      readLessClassName="read-more-less--less"
+                    >
+
+                      {longText}
+                    </ReactReadMoreReadLess>
+                  </div>
                 </div>
                 <div>
                   <Table borderless>
@@ -111,7 +196,7 @@ export default function Details(props) {
                         <p>Real Estate Broker</p>
                         <tr>
                           <td className='num'>&#43;{value.Negotiator && value.Negotiator.Phone}</td>
-                          <td className='mail'>Email</td>
+                          <td className='mail' href={value.Negotiator && value.Negotiator.Email}>Email</td>
                         </tr>
                       </td>
                     </tr>
@@ -123,9 +208,10 @@ export default function Details(props) {
               </div>
             </Row>
           </Col>
-        </Row>
-      )}
+        </Row >
+      )
+      }
       <Footer />
-    </>
+    </Container>
   );
 }

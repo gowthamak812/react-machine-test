@@ -2,7 +2,6 @@ $color-1: rgb(95, 92, 92);
 $color-2: black;
 
 .card-style {
-    margin: 1%;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
@@ -23,19 +22,26 @@ $color-2: black;
     border-radius: 50%;
     padding: 5px;
 }
-
-.card-row {
-    width: 100%;
+.heart:hover{
+    background-color: rgb(200, 160, 0);
+    color: white;
+    opacity: 5;
+}
+.heart::after{
+    color: white;
+    background-color: red;
 }
 
 .card-image {
-    height: 100%;
-    max-height: 300px;
+    height: 275px;
+}
+
+.container {
+    max-width: 1660px !important;
 }
 
 .card-body {
-    height: 100%;
-    max-height: 140px;
+    padding-bottom: 0px;
 
     p:nth-child(1) {
         text-transform: uppercase;

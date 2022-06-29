@@ -38,12 +38,20 @@ $color-6: black;
     }
 }
 
-.right-col {
-    width: 100%;
+.btn:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+.btn:focus:hover{
+    color: black !important;
+    background-color: white !important;
+}
 
-    h3 {
-        text-align: right;
-        padding: 5px 15px;
+.right-col {
+    span {
+        float: right;
+        margin: 5px 15px;
+        cursor: pointer;
     }
 
     tr {
@@ -73,6 +81,8 @@ $color-6: black;
 }
 
 .home-icon {
+    cursor: none !important;
+
     a {
         display: flex;
         font-weight: 600;
@@ -101,17 +111,31 @@ $color-6: black;
 
     td:first-child {
         font-weight: bold;
-        padding: 10px 0px;
+        padding-left: 0px;
     }
 
     td:nth-child(2) {
-        padding: 10px;
+        text-decoration: none;
+        p {
+            cursor: pointer;
+            width: 150px;
+            margin: 0px;
+            padding: 0px;
+            color: black;
+        }
     }
 }
-
-.summary {
-    text-align: justify;
-    font-size: 18px;
+.modal-content{
+    margin-top: 25%;
+    width: 600px;
+}
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    // -webkit-line-clamp: 5; 
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
 }
 
 .personal-info {
@@ -147,6 +171,7 @@ $color-6: black;
     padding: 0px 10px !important;
     border-left: 1px solid $color-3  !important;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .map {
@@ -164,9 +189,10 @@ $color-6: black;
         justify-content: center;
         background-color: $color-5;
         position: absolute;
-        right: 80px;
+        right: 100px;
         bottom: 37px;
         padding: 5px;
+        cursor: pointer;
     }
 
     h3 {
@@ -174,8 +200,9 @@ $color-6: black;
         justify-content: center;
         background-color: $color-5;
         position: absolute;
-        right: 30px;
+        right: 40px;
         bottom: 30px;
         padding: 5px;
+        cursor: pointer;
     }
 }

@@ -62,8 +62,8 @@ export default function Details(props) {
 
   // let longText = value && value.Description;
   const longText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum venenatis pulvinar. Proin vitae lectus urna. Sed erat ipsum, maximus a elit nec, condimentum placerat ex. Ut tincidunt mi eget condimentum mollis. Pellentesque aliquam velit quis est varius, sed molestie dolor ultrices. Pellentesque eget dapibus eros, at blandit arcu. Duis id purus quis mi porttitor viverra vel tempus elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos posuere";
-  let one = value.Floor_Plans && value.Floor_Plans[0].url;
-  console.log(one);
+  
+  
 
   return (
     <Container>
@@ -163,8 +163,8 @@ export default function Details(props) {
                       <td>Floor plan:</td>
                       <td onClick={handleShow}>
                           <a href='#'><p>View Floorplan</p></a></td>
-                      <Modal className='model-box' show={show} onHide={handleClose}>
-                        <Image src={value.Floor_Plans && value.Floor_Plans[0].url} />
+                      <Modal  show={show} onHide={handleClose}>
+                        <Image src={value.Floor_Plans && value.Floor_Plans.length > 0 && value.Floor_Plans[0].url} />
                         <Modal.Footer>
                           <Button variant="secondary" onClick={handleClose}>
                             Close

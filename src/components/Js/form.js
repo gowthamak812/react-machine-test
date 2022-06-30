@@ -36,7 +36,7 @@ function Form() {
         onSubmit: (userInputData) => {
             let givenValue = userInputData && userInputData.email === validEmail &&
                 userInputData && userInputData.password === validPassword;
-            console.log(Boolean(givenValue))
+                
             if (Boolean(givenValue) === true) {
                 navigate("/property", { replace: true })
             } else {
@@ -47,7 +47,7 @@ function Form() {
 
     return (
         <>
-            <div class="container mt-5 position-relative">
+            <div class="container mt-5">
                 <form autoComplete="off" onSubmit={formik.handleSubmit}>
                     <div class="App mx-auto">
                         <div class="form-group ">

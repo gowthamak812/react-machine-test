@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Card, Container,Image } from 'react-bootstrap';
+import { Row, Col, Card, Container, Image } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import Header from './header';
 import Dropdown from './dropdown';
@@ -12,7 +12,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function Cards() {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
+
 
   useEffect(() => {
     getList()
@@ -32,6 +33,12 @@ export default function Cards() {
   AOS.init({
     duration: 1200,
   })
+  const [switchToggled, setSwitchToggled] = useState(false);
+  const ToggleSwitch = () => {
+    switchToggled ? setSwitchToggled(false) : setSwitchToggled(true);
+
+  }
+
   return (
     <>
       <Container>
@@ -42,9 +49,10 @@ export default function Cards() {
             {users && users.slice(0, 12).map((data, i) => {
               return (
                 <Col className='p-0' data-aos="slide-up" xs={12} md={6} sm={6} lg={4} key={i}>
+                  {/* <AiOutlineHeart onClick={ToggleSwitch} size={40} className={switchToggled ? "heart-toggle" : "heart"} /> */}
                   <Link style={{ textDecoration: 'none' }} to={`/details?id=${i}`}>
                     <Card className='card-div '>
-                      <AiOutlineHeart size={35} className='heart' />
+                      <AiOutlineHeart key={i} onClick={ToggleSwitch} size={40} className={switchToggled ? "heart-toggle" : "heart"} />
                       <Image fluid className='card-image' src={data && data.Images[0].url} />
                       <Card.Body className='card-body'>
                         <p>{data && data.Title}</p>

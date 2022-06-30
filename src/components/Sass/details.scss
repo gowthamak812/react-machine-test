@@ -7,7 +7,14 @@ $color-6: black;
     margin: 0px !important;
     padding: 0px !important;
 }
-
+.btn{
+    outline: 0;
+    box-shadow: none !important;
+}
+.btn:hover{
+    color: black !important;
+    background-color: white !important;
+}
 .first-col {
     place-content: center;
     display: grid;
@@ -36,15 +43,6 @@ $color-6: black;
     div {
         width: 100%;
     }
-}
-
-.btn:focus {
-    outline: 0;
-    box-shadow: none !important;
-}
-.btn:focus:hover{
-    color: black !important;
-    background-color: white !important;
 }
 
 .right-col {
@@ -123,11 +121,16 @@ $color-6: black;
             padding: 0px;
             color: black;
         }
+        p:hover{
+           text-decoration: underline;
+        }
     }
 }
-.modal-content{
-    margin-top: 25%;
-    width: 600px;
+.modal-dialog{
+    max-width: 700px;
+    img{
+        padding-right: 20px;
+    }
 }
 .text {
     overflow: hidden;

@@ -6,41 +6,47 @@ function Dropdown() {
     return (
         <>
             <p className='normal-style'>Property for sale</p>
+            <Nav fill className='dropdown' variant="tabs">
+                <Nav.Item xs-d-block>
+                    <select title="All Bedrooms" id="basic-nav-dropdown">
+                        <option href="#">1 Bedroom</option>
+                        <option href="#">2 Bedrooms</option>
+                        <option href="#">3 Bedrooms</option>
+                        <option href="#">4 Bedrooms</option>
 
-            <Navbar expand="lg dropdown">
-                <Nav className="me-auto nav-alignment">
-                    <NavDropdown xs={6} sm={12} md={12} title="All Bedrooms" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#">1 Bedroom</NavDropdown.Item>
-                        <NavDropdown.Item href="#">2 Bedrooms</NavDropdown.Item>
-                        <NavDropdown.Item href="#">3 Bedrooms</NavDropdown.Item>
-                        <NavDropdown.Item href="#">4 Bedrooms</NavDropdown.Item>
+                    </select>
+                </Nav.Item>
+                <Nav.Item>
+                    <select title="Any Neighbourhood" id="basic-nav-dropdown">
+                        <option href="#">Larvatto</option>
+                        <option href="#">Condamine</option>
+                        <option href="#">Fontvieille</option>
+                        <option href="#">Monaco Ville</option>
 
-                    </NavDropdown>
-                    <NavDropdown xs={12} sm={12} md={12} title="Any Neighbourhood" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#">Larvatto</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Condamine</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Fontvieille</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Monaco Ville</NavDropdown.Item>
-
-                    </NavDropdown>
-                    <NavDropdown xs={12} sm={12} md={12} title="Min Price" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#">5000000 &#8364;</NavDropdown.Item>
-                        <NavDropdown.Item href="#">1000000 &#8364;</NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown xs={12} sm={12} md={12} title="Max Price" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#">2500000 &#8364;</NavDropdown.Item>
-                        <NavDropdown.Item href="#">2000000 &#8364;</NavDropdown.Item>
-                    </NavDropdown>
-                    <NavDropdown xs={12} sm={12} md={12} title="Sort by" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#">For Rental</NavDropdown.Item>
-                        <NavDropdown.Item href="#">For Sale</NavDropdown.Item>
-                    </NavDropdown>
-                    <div href="#"   className='result'>
-                        <td>12 Results</td>
-                    </div>
-                </Nav>
-
-            </Navbar>
+                    </select>
+                </Nav.Item>
+                <Nav.Item>
+                    <select title="Min Price" id="basic-nav-dropdown">
+                        <option href="#">5000000 &#8364;</option>
+                        <option href="#">1000000 &#8364;</option>
+                    </select>
+                </Nav.Item>
+                <Nav.Item>
+                    <select xs={12} sm={12} md={12} title="Max Price" id="basic-nav-dropdown">
+                        <option href="#">2500000 &#8364;</option>
+                        <option href="#">2000000 &#8364;</option>
+                    </select>
+                </Nav.Item>
+                <Nav.Item>
+                    <select xs={12} sm={12} md={12} title="Sort by" id="basic-nav-dropdown">
+                        <option href="#">For Rental</option>
+                        <option href="#">For Sale</option>
+                    </select>
+                </Nav.Item>
+                <Nav.Item>
+                    <td>12 Results</td>
+                </Nav.Item>
+            </Nav>
         </>
     );
 }

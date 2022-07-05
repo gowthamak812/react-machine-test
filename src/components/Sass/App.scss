@@ -1,5 +1,6 @@
 $color-1: rgb(164, 164, 164);
 $color-2: rgb(230, 230, 230);
+
 * {
     margin: 0px;
     padding: 0px;
@@ -15,65 +16,75 @@ $color-2: rgb(230, 230, 230);
 }
 
 .normal-style {
-    margin:20px;
+    margin: 20px;
     font-size: 30px;
     text-align: center;
 }
-.dropdown{
-    margin: 5px 5px;
-    width: 100%;
+
+.dropdown {
+    margin: 5px 20px;
     border-top: 2px solid $color-1;
     border-bottom: 2px solid $color-1;
 }
-select{
-    width: 100%;
+
+select {
     padding: 10px;
-    text-align: center;
-    padding-right: 10px;
     border: none;
     outline: none;
+    text-align: center !important;
 }
-.nav-item{
-    margin-right: 10px;
+option{
+    text-align: left;
 }
-.navbar{
-    text-align: center;
 
+@media only screen and (max-width: 885px) {
+    select{
+        text-align: left !important;
+        width: 100%;
+    }
+    .nav{
+        display: block;
+    }
 }
+
 .nav-alignment {
     width: 100%;
     border-top: 2px solid $color-1;
     border-bottom: 2px solid $color-1;
-    text-align: left;
 }
 
 #basic-nav-dropdown {
     font-size: 17px;
 }
-.dropdown-toggle{
+
+.dropdown-toggle {
     text-align: left;
 }
+
 .dropdown-toggle::after {
     margin-left: 1.555em;
     vertical-align: 0.155em;
 }
-.dropdown-menu{
+
+.dropdown-menu {
     width: 100%;
     margin-left: 35px;
 }
-.dropdown-item{
+
+.dropdown-item {
     background: transparent !important;
     color: black !important;
 }
-.dropdown-item:hover{
-    background-color: $color-2 !important;
+
+.dropdown-item:hover {
+    background-color: $color-2  !important;
 }
-.result{
-    padding-right: 30px;
-    padding-top: 10px;
+
+.result {
+    padding: 10px;
+    margin-right: 20px;
     align-items: center;
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
-
